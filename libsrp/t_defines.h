@@ -83,9 +83,9 @@
 #define strrchr rindex
 #endif
 char *strchr(), *strrchr(), *strtok();
-#ifndef HAVE_MEMCPY
-#define memcpy(d, s, n) bcopy((s), (d), (n))
-#endif
+//#ifndef HAVE_MEMCPY
+//#define memcpy(d, s, n) bcopy((s), (d), (n))
+//#endif
 #endif /* not STDC_HEADERS */
 
 #include <sys/types.h>

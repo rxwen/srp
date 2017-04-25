@@ -158,6 +158,7 @@ tick()
 	it.it_value.tv_usec = 16665;
 	if (setitimer(ITIMER_REAL, &it, &oit) < 0)
 		perror("tick");
+    return 0;
 }
 
 static void

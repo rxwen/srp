@@ -9,7 +9,11 @@
 #endif
 #endif
 
+#ifdef USE_SHA512
+#define SHA_DIGESTSIZE 64
+#else
 #define SHA_DIGESTSIZE 20
+#endif
 
 #ifdef OPENSSL
 #define OPENSSL_SHA 1
@@ -36,10 +40,18 @@
 #ifdef OPENSSL_SHA
 #include <openssl/sha.h>
 
+#ifdef USE_SHA512
+typedef SHA512_CTX SHA1_CTX;
+#define SHA1Init SHA512_Init
+#define SHA1Update SHA512_Update
+#define SHA1Final SHA512_Final
+#else
 typedef SHA_CTX SHA1_CTX;
 #define SHA1Init SHA1_Init
 #define SHA1Update SHA1_Update
 #define SHA1Final SHA1_Final
+#endif
+
 #elif defined(TOMCRYPT_SHA)
 /* mycrypt.h already included above */
 
