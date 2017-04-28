@@ -321,8 +321,8 @@ _TYPE( SRP_RESULT ) SRP_respond P((SRP * srp, cstr ** response));
 
 /* RFC2945-style SRP authentication */
 
-#define RFC2945_KEY_LEN 40	/* length of session key (bytes) */
-#define RFC2945_RESP_LEN 20	/* length of proof hashes (bytes) */
+#define RFC2945_KEY_LEN SHA_DIGESTSIZE	/* length of session key (bytes) */
+#define RFC2945_RESP_LEN SHA_DIGESTSIZE	/* length of proof hashes (bytes) */
 
 /*
  * RFC2945-style SRP authentication methods.  Use these like:
