@@ -107,7 +107,7 @@ char *strchr(), *strrchr(), *strtok();
 #define GTTY(fd, termio) tcgetattr(fd, termio)
 #define TERMIO struct termios
 #define USE_TERMIOS
-#elif HAVE_TERMIO_H
+#elif defined(HAVE_TERMIO_H)
 #include <sys/ioctl.h>
 #include <termio.h>
 #define STTY(fd, termio) ioctl(fd, TCSETA, termio)
