@@ -269,7 +269,11 @@ srp6_client_key_ex(SRP * srp, cstr ** result,
 
   /* convert srp->key into a session key, update hash states */
   BigIntegerToCstr(srp->key, s);
-  t_mgf1(CLIENT_CTXP(srp)->k, RFC2945_KEY_LEN, s->data, s->length); /* Interleaved hash */
+  /*t_mgf1(CLIENT_CTXP(srp)->k, RFC2945_KEY_LEN, s->data, s->length); [> Interleaved hash <]*/
+  SHA1_CTX sctx;
+  SHA1Init(&sctx);
+  SHA1Update(&sctx, s->data, s->length);
+  SHA1Final(CLIENT_CTXP(srp)->k, &sctx);
   cstr_clear_free(s);
 
   /* hash: (H(N) xor H(g)) | H(U) | s | A | B | K */
