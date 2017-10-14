@@ -16,7 +16,7 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := eng
-LOCAL_C_INCLUDES := external/openssl/include
+LOCAL_C_INCLUDES := external/libjingle/third_party/openssl/openssl/include
 LOCAL_CFLAGS += -DHAVA_MEMCPY -DUSE_SGTTY -DOPENSSL -DOPENSSL_ENGINE -DOPENSSL_SHA -DUSE_SHA512
 LOCAL_SRC_FILES := \
 	./t_truerand.c \
