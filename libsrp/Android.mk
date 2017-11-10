@@ -43,7 +43,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_SHARED_LIBRARIES:=\
 	libcrypto \
-    libopenssl \
+    libssl \
 
 LOCAL_MODULE := libsrp
 include $(BUILD_SHARED_LIBRARY)
